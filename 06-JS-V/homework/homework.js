@@ -30,7 +30,6 @@ function agregarMetodoPrototype(Constructor) {
   Constructor.prototype.saludar = function(){
     return "Hello World!"
   }
-
 }
 
 function agregarStringInvertida() {
