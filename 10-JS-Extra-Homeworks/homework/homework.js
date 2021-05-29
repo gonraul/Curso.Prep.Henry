@@ -100,49 +100,28 @@ function asAmirror(str) {
   //Ej: Recibe ---> "The Henry Challenge is close!" || Devuelve ---> "ehT yrneH egnellahC si !esolc"
   //Escribe tu código aquí
 
-    str += ' ';
-    let flag = true;
-    let array = str.split('');
-    let newArray = [];
-    let auxArray = [];
-    cont = 0;
-    inicio= 0;
-    final= 0;
-    let palabra = '';
-
-    for (let i = 0; i < array.length; i++) {
-
-        if (array[i] !== ' ') {
-            if (flag) {
-                inicio = i;
-                flag = false;
-            }
-            final = i;
-        }
-        if (array[i] === ' ') {
-            
-            while (inicio <= final) {
-                auxArray.unshift(array[inicio]);
-                inicio++;
-            }
-            newArray.push(auxArray)
-            newArray[final+1] = ' ';
-            flag = true;
-            auxArray= [];
-        }
-    }
-
-    const totalArray = newArray.flat();
-
-    for (let i = 0; i < totalArray.length; i++) {
-        palabra += totalArray[i];
-        
-    }
-    let palabras = palabra.trim();
-
-    return palabras
+  let str1 = '';
+  let str2 = '';
+  let aux = '';
+  let aux1 = '';
+  let cont = str.length -1;
+  
+  for (let i = 0; i < str.length; i++) {
+      str1 += str.charAt(cont)
+      cont--
+  }
+  str1 =  str1 + ' ' 
+  for (let i = 0; i < str1.length; i++) {
+      if (str1.charAt(i) !== ' ') {
+          aux += str1.charAt(i)
+      }
+      else{
+          aux1 = aux + ' ' + aux1
+          aux = ''
+      }    
+  }
+    return aux1.trim()
 } 
-
 
 function capicua(numero){
   //Escribe una función, la cual recibe un número y determina si es o no capicúa.
